@@ -7,34 +7,40 @@ The project shows how `oldact` works as the third argument of the system call `s
 Link: https://man7.org/linux/man-pages/man2/sigaction.2.html
 
 ## Progress
-1. Build the project, generating GDB debug information.
+#### 1. Build the project, generating GDB debug information.
 
 ```
 $ gcc -g -o TEST main.c
 ```
 
-3. Open the program with GDB.
+![image](https://github.com/user-attachments/assets/bf572a4c-d316-429a-91c6-2e8d04830bc5)
+
+#### 2. Open the program with GDB.
 
 ```
 $ gdb TEST
 ```
 
-3. Disassemble the main function.
+![image](https://github.com/user-attachments/assets/925a105a-75ba-4fa2-9117-be424c8735eb)
+
+#### 3. Disassemble the main function.
 
 ```
 (gdb) disas main
 ```
 
-![image](https://github.com/user-attachments/assets/693518ad-1aee-4d29-9b37-643be635e6c6)
+![image](https://github.com/user-attachments/assets/3165f88f-dbc6-43f8-9c34-88d1e1e3bb4a)
 
-4. Check `call` instructions for `print_handler` function. You can find four calls in the example program.
+#### 4. Check `call` instructions for `print_handler` function. You can find four calls in the example program.
 
 ![image](https://github.com/user-attachments/assets/54600991-386e-4564-8d7e-96e47760bee3)
 
-5. Set breakpoints either at four `call ADDR <print_handler>`, or at `print_handler` once.
+![image](https://github.com/user-attachments/assets/6a4dc4f9-fa39-4463-ac72-3620a0995d0c)
+
+#### 5. Set breakpoints either (A) at four `call ADDR <print_handler>`s, or (B) at `print_handler` once.
 
 ##### Option A
-If you'd like to set a breakpoint at <+319>, type this:
+If you'd like to set a breakpoint at <+319> from the main function address, type this:
 ```
 (gdb) b *main+319
 ```
@@ -49,7 +55,7 @@ If you'd like to set a breakpoint at <print_handler>, type this:
 
 ![image](https://github.com/user-attachments/assets/a6ea5ac9-b024-4538-be57-d5ba051f571b)
 
-6. Run the program.
+#### 6. Run the program.
 
 ```
 (gdb) r
@@ -57,7 +63,7 @@ If you'd like to set a breakpoint at <print_handler>, type this:
 
 ![image](https://github.com/user-attachments/assets/2a05a3d7-7020-40f2-9d6f-75a292e79ca0)
 
-7. At every breakpoint, check the `oldact` variable. In the example, you can track it with `sold`.
+#### 7. At every breakpoint, check the `oldact` variable. In the example, you can track it with `sold`.
 
 ##### Option A
 To show `sold.sa_handler` in the main function, `print sold`.
