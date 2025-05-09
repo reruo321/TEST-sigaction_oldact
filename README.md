@@ -1,5 +1,5 @@
 # TEST: sigaction_oldact
-The project shows how `oldact` works as the third argument of the system call `sigaction()` with a simple debugging. It is the `struct sigaction` that stores the previous action. Thanks to it, we programmers do not need to remember the name of the function in the previous action.
+The project shows how a system call `sigaction()` works with a simple debugging. Especially, I focused on the third parameter, `oldact`. It is the `struct sigaction` that stores the previous action.
 
 ## Manual
 ![image](https://github.com/user-attachments/assets/3e021068-c965-4843-82cc-ffa11a9d86b3)
@@ -99,3 +99,4 @@ To show `handler` of the second `print_handler` argument, `print handler`.
 ## Conclusion
 In `sigaction()`, the `oldact` argument stores the previous `sigaction` when it is replaced by the new `sigaction`. It is the second argument of the function, `act`.
 
+Thanks to the `oldact`, we programmers do not need to exactly remember what it did in the previous action! Just store it as a `struct sigaction` variable, and get it back when we need it again.
