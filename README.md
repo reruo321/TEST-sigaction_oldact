@@ -1,5 +1,5 @@
 # TEST: sigaction_oldact
-The project shows how a system call `sigaction()` works. It contains a simple debugging process using GDB. Especially, I focused on the third parameter, `oldact`. It is the `struct sigaction` that stores the previous action.
+The project shows how a system call `sigaction()` works. It contains a simple debugging process using GDB. Especially, I focused on the examination on the third parameter, `oldact`. It is the `struct sigaction` that stores the previous action.
 
 ## Manual
 ![image](https://github.com/user-attachments/assets/3e021068-c965-4843-82cc-ffa11a9d86b3)
